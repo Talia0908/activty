@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h1>Detalhes do produto</h1>
+<div>
+    <label>Nome:</label>
+    {{produto.nome}}
+</div>
+<div>
+    <label>Descrição:</label>
+    {{produto.descricao}}
+</div>
+<div>
+    <label>Quantidade:</label>
+    {{produto.quantidade}}
+</div>
+{% endblock %}

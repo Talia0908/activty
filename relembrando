@@ -1,0 +1,53 @@
+Modelo.objects.filter(nome__exact='leonardo') || é para trazer um nome expecifico
+Modelo.objects.filter(nome__icontains='leonardo') ||| é para trazer a lista de dos nome que tive leonardo
+Modelo.objects.filter(idade__gt= 10) || é para ver a idade ou qualquer numero
+
+Modelo.objects.filter(cliente__nome__contais ='leonado') ||
+
+
+Migrações são a maneira do Django de propagar alterações que você faz nos seus modelos 
+(adicionando um campo, excluindo um modelo etc.)
+
+python manage.py makemigrations
+python manage.py migrate
+
+django-admin startproject 'nome do projeto'
+python manage.py startapp 'nome do aplicativo'
+
+para subir ao git
+nome do reprogitorio
+git init
+1 git status
+2 git add .
+3 git commit -m "nome da alteraçao"
+4 git push origin master
+
+python manage.py shell
+
+Count - quantos tem
+Avg - media
+Sum - soma
+Min -- o minimo
+Max - o maximo
+Values - usa para trazer um valor da consulta (serve para agrupar)
+
+1 letra maiscula é classe
+
+aggregate || vai agregar valores  em uma reposta, juntas varias coisas e retonar um valor so
+modelo.objects.aggregate(Min('campo')) ele retorna o dicionario
+
+para importa || from django.db.models import 'oq quiser'
+
+from 'aplicaçao'.models import 'modelo'
+
+annotate || criar um novo campo e retorna esse campo, 
+
+models.objects.Values('campo1','campo2')
+
+quando vc quer lista algo a funcao é GET e quando queremos manda de volta como lista é POST
+
+session guarda informações teporarias que precisamos frequentemente
+
+variavel = request.session('variavel', '') para chamar
+
+para mostra || {{request.session.variavel}}

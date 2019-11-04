@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<p>Foram adds {{request.session.ss | length }} produtos</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Valor</th>
+            <th>Quantidade</th>
+            <th>Valor Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in n %}
+        <tr>
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>R${{product.value}}</td>
+            <td>{{product.quantity}}</td>
+            <td>R$ {{product.value_total}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div>
+    <h1>Total: {{soma}}</h1>
+</div>
+<button><a href="/one/products/check">Finalizar</a></button>
+
+
+{% endblock %}

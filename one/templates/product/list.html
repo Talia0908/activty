@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.value}}</td>
+            <td><button><a href="/one/products/{{product.id}}/fin">compra</a></button></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p>Foram cadastrados {{products | length }} produtos</p>
+
+<form class="input-group" action="/one/products/" method="post">
+    {% csrf_token %}
+    <select name = "order" class="custom-select" id="inputGroupSelect04" aria-label="Exemplo de select com botão addon">
+      <option selected>Escolher...</option>
+      <option value="name">nome</option>
+      <option value="smaller">menor preço</option>
+      <option value="bigger">maior preço</option>
+    </select>
+      <button class="btn btn-primary" type="submit">Botão</button>
+    </form>
+<p>Foram adds {{request.session.ss | length }} produtos <button><a href="http://127.0.0.1:8000/one/products/car">Produtos Adds</a></button></p>
+
+{% endblock %}
