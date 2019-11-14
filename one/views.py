@@ -3,6 +3,7 @@ from . models import Product, Client, Cart, Quantity
 from . forms import ProductForm, ClientForm, CartForm, QuantityForm
 import json
 from datetime import date
+from django.contrib import messages
 
 def home(request):    
     visitante = request.session.get('visitante', 1001)
@@ -83,3 +84,17 @@ def check_out(request):
     del request.session['ss']
     return redirect('/one/products/')
 
+
+def product_create(request):
+    if (request.method == "POST"):
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'cadastro ok.')
+            
+            return redirect('/one/products/')
+        else:
+            return render (request, 'product/create.html', {'form': form})
+    else:
+        form = ProductForm()
+        return render (request, 'product/create.html', {'form': form})

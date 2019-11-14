@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 {% block conteudo %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="alert alert-success" 
+     {% endif %}>{{ message }}</li>
+        {% endfor %}
+</ul>
+{% endif %}
 <table class="table">
     <thead>
         <tr>
